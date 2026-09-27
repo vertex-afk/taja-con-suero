@@ -1,1 +1,635 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Taja con Suero</title></head><body style="font-family:Arial,sans-serif;padding:40px;background:#111;color:#f6efd9"><h1>TAJA CON SUERO</h1><p>Landing publicada correctamente.</p></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sistema de adquisición digital y domicilios directos para Taja con Suero.">
+<title>Taja con Suero — Más pedidos. Menos comisiones.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+:root{
+  --black:#11100d;
+  --black-2:#191713;
+  --cream:#f6efd9;
+  --cream-2:#fff9e8;
+  --yellow:#f2b51d;
+  --yellow-2:#ffc62e;
+  --green:#2f8a54;
+  --muted:#bdb6a6;
+  --line:rgba(246,239,217,.13);
+  --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--cream);
+  font-family:"DM Sans",system-ui,sans-serif;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+.eyebrow{
+  color:var(--yellow);
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+h1,h2,h3,p{margin-top:0}
+.display,.section-title,.step-number,.price{
+  font-family:"Oswald",Impact,sans-serif;
+}
+.display{
+  font-size:clamp(3.6rem,7.2vw,7.2rem);
+  line-height:.88;
+  letter-spacing:-.045em;
+  text-transform:uppercase;
+}
+.section-title{
+  font-size:clamp(2.8rem,5.2vw,5.4rem);
+  line-height:.9;
+  letter-spacing:-.035em;
+  text-transform:uppercase;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:54px;
+  padding:0 24px;
+  border-radius:999px;
+  font-weight:800;
+  transition:.25s ease;
+}
+.btn-primary{background:var(--yellow);color:#111}
+.btn-primary:hover{transform:translateY(-3px);background:var(--yellow-2);box-shadow:0 16px 40px rgba(242,181,29,.2)}
+.btn-ghost{border:1px solid var(--line);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
+header{
+  position:fixed;
+  z-index:20;
+  top:0;left:0;right:0;
+  padding:18px 0;
+  background:linear-gradient(180deg,rgba(17,16,13,.92),rgba(17,16,13,0));
+  backdrop-filter:blur(8px);
+}
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.nav img{width:105px;height:auto}
+.nav-links{display:flex;gap:28px;font-size:.9rem;color:#ddd5c3}
+.nav-links a:hover{color:var(--yellow)}
+.hero{
+  min-height:100svh;
+  display:grid;
+  align-items:center;
+  position:relative;
+  padding:120px 0 70px;
+  overflow:hidden;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  width:720px;height:720px;
+  right:-220px;top:40px;
+  background:radial-gradient(circle,rgba(242,181,29,.15),transparent 67%);
+  filter:blur(5px);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:50px;
+  align-items:center;
+}
+.hero-copy{position:relative;z-index:2}.hero-copy:after{content:"";position:absolute;width:320px;height:180px;left:-80px;top:110px;background:rgba(242,181,29,.08);filter:blur(55px);z-index:-1;pointer-events:none}
+.hero h1{max-width:760px;margin:22px 0 28px;overflow-wrap:normal}
+.hero h1 span{color:var(--yellow)}
+.hero-sub{
+  max-width:650px;
+  color:#c8c0ae;
+  font-size:clamp(1rem,1.5vw,1.25rem);
+  line-height:1.65;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-art{
+  position:relative;
+  min-height:520px;
+  padding:30px 0;
+  display:grid;
+  place-items:center;
+}
+.hero-logo{
+  width:min(520px,90%);
+  position:relative;
+  z-index:2;
+  filter:drop-shadow(0 30px 35px rgba(0,0,0,.45));
+  animation:float 5s ease-in-out infinite;
+  mix-blend-mode:normal;
+}
+.hero-corn{position:absolute;width:230px;left:2%;bottom:4%;z-index:3;filter:drop-shadow(0 20px 25px rgba(0,0,0,.4));animation:floatCorn 6s ease-in-out infinite}
+@keyframes floatCorn{50%{transform:translate(-5px,-16px) rotate(-3deg)}}
+}
+.orbit{
+  position:absolute;
+  width:440px;height:440px;
+  border:1px solid rgba(242,181,29,.22);
+  border-radius:50%;
+  transform:rotate(-18deg);
+}
+.orbit:before,.orbit:after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  background:var(--yellow);
+}
+.orbit:before{width:12px;height:12px;left:42px;top:50px;box-shadow:0 0 28px var(--yellow)}
+.orbit:after{width:7px;height:7px;right:65px;bottom:60px}
+.badge{
+  position:absolute;
+  z-index:3;
+  padding:11px 15px;
+  border-radius:999px;
+  background:#171511;
+  border:1px solid rgba(246,239,217,.14);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  font-size:.78rem;
+  font-weight:800;
+}
+.badge.one{top:18%;right:3%}
+.badge.two{bottom:20%;left:0}
+.badge.three{bottom:8%;right:12%;background:var(--yellow);color:#111}
+@keyframes float{50%{transform:translateY(-12px) rotate(1deg)}}
+
+.marquee{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+  padding:18px 0;
+  color:var(--yellow);
+  white-space:nowrap;
+}
+.marquee-track{
+  display:inline-block;
+  animation:scroll 24s linear infinite;
+  font-family:"Oswald",Impact,sans-serif;
+  font-size:1.15rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.marquee-track span{margin:0 25px;color:var(--cream)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+.section{padding:120px 0}
+.dark-section{background:var(--black)}
+.cream-section{background:var(--cream);color:#16140f}
+.yellow-section{background:var(--yellow);color:#111;overflow:hidden}
+.section-head{max-width:900px;margin-bottom:60px}
+.section-head p{color:#8f897b;line-height:1.7;max-width:650px;margin-top:24px}
+.cream-section .section-head p{color:#5c574d}
+
+.problem-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.card{
+  padding:30px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--black-2);
+  min-height:260px;
+}
+.card .icon{
+  width:44px;height:44px;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(242,181,29,.12);
+  color:var(--yellow);
+  font-weight:900;margin-bottom:45px;
+}
+.card h3{font-size:1.45rem;margin-bottom:12px}
+.card p{color:#aaa292;line-height:1.6;margin:0}
+.solution{
+  margin-top:16px;
+  padding:42px;
+  border-radius:var(--radius);
+  background:var(--yellow);
+  color:#111;
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:end;
+}
+.solution h3{
+  font-family:"Oswald",Impact,sans-serif;
+  text-transform:uppercase;
+  font-size:clamp(2.3rem,4vw,4.5rem);
+  line-height:.95;
+  max-width:760px;
+  margin:0;
+}
+
+.system{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  align-items:stretch;
+}
+.system-step{
+  position:relative;
+  padding:28px 20px;
+  min-height:250px;
+  background:var(--black);
+  color:var(--cream);
+  border:1px solid rgba(17,16,13,.15);
+  border-radius:18px;
+}
+.system-step:not(:last-child):after{
+  content:"→";
+  position:absolute;
+  right:-19px;top:50%;
+  transform:translateY(-50%);
+  font-size:28px;font-weight:900;
+  z-index:2;
+}
+.step-number{font-size:4.5rem;line-height:1;color:rgba(17,16,13,.2)}
+.system-step h3{font-family:"Oswald",Impact,sans-serif;text-transform:uppercase;font-size:1.7rem;margin:40px 0 8px;color:var(--cream)}
+.system-step p{font-size:.88rem;line-height:1.5;color:#bdb6a6;opacity:1}
+.quote{
+  margin-top:30px;
+  background:var(--cream-2);
+  border-radius:20px;
+  padding:28px 34px;
+  font-family:"Oswald",Impact,sans-serif;
+  font-size:clamp(1.4rem,2.4vw,2.3rem);
+  line-height:1.15;
+}
+
+.pillars{display:grid;gap:0}
+.pillar{
+  min-height:520px;
+  padding:90px 0;
+  border-top:1px solid var(--line);
+  display:grid;
+  grid-template-columns:120px 1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+.pillar-number{font-family:"Oswald",Impact,sans-serif;font-size:6rem;color:var(--yellow);line-height:1}
+.pillar h3{
+  font-family:"Oswald",Impact,sans-serif;
+  font-size:clamp(2.8rem,5vw,5.2rem);
+  text-transform:uppercase;
+  line-height:.9;
+  margin-bottom:25px;
+}
+.pillar p{color:#bdb6a6;line-height:1.75;max-width:570px}
+.pillar-visual{
+  min-height:330px;
+  border-radius:30px;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(circle at 70% 30%,rgba(242,181,29,.25),transparent 30%),
+    linear-gradient(135deg,#211e18,#0d0c0a);
+  display:grid;place-items:center;
+  position:relative;overflow:hidden;
+}
+.visual-label{
+  padding:12px 18px;
+  border:1px solid rgba(246,239,217,.15);
+  border-radius:999px;
+  background:rgba(17,16,13,.7);
+  font-size:.78rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.fake-phone{
+  width:180px;height:330px;border:7px solid #2d2a24;border-radius:28px;
+  background:var(--cream);
+  color:#111;padding:14px;
+  transform:rotate(-5deg);
+  box-shadow:30px 30px 70px rgba(0,0,0,.5);
+}
+.fake-phone .top{height:8px;width:60px;border-radius:10px;background:#111;margin:0 auto 15px}
+.fake-phone .screen-logo{font-family:"Oswald",Impact,sans-serif;font-size:27px;line-height:.9;margin:30px 0 18px;text-transform:uppercase}
+.fake-phone .fake-btn{height:38px;background:var(--yellow);border-radius:10px;margin-top:15px}
+.map{
+  width:80%;height:80%;position:relative;
+  background-image:linear-gradient(rgba(246,239,217,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(246,239,217,.07) 1px,transparent 1px);
+  background-size:45px 45px;
+  transform:rotate(-7deg);
+}
+.map .zone{position:absolute;width:210px;height:210px;border:1px dashed var(--yellow);border-radius:50%;left:24%;top:18%;box-shadow:0 0 50px rgba(242,181,29,.1)}
+.map .pin{position:absolute;width:13px;height:13px;background:var(--yellow);border-radius:50%;box-shadow:0 0 15px var(--yellow)}
+.map .pin:nth-child(2){left:35%;top:30%}.map .pin:nth-child(3){left:57%;top:52%}.map .pin:nth-child(4){left:45%;top:67%}.map .pin:nth-child(5){left:72%;top:36%}
+
+.plans{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+}
+.plan{
+  padding:40px;border-radius:28px;border:1px solid #ddd4bb;background:#fff9e8;
+  color:#16140f;position:relative;overflow:hidden;
+}
+.plan.featured{background:#16140f;color:var(--cream);border-color:var(--yellow)}
+.plan .tag{
+  display:inline-block;font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
+  padding:8px 11px;border-radius:999px;background:#e9e0c7;color:#403b31;margin-bottom:30px
+}
+.plan.featured .tag{background:rgba(242,181,29,.16);color:var(--yellow)}
+.plan h3{font-family:"Oswald",Impact,sans-serif;text-transform:uppercase;font-size:2.7rem;margin-bottom:18px}
+.price{font-size:4.8rem;line-height:.9;margin-bottom:8px}
+.price small{font-family:"DM Sans",sans-serif;font-size:.95rem;letter-spacing:0;color:inherit;opacity:.65}
+.plan-sub{opacity:.65;margin-bottom:25px}
+.plan ul{padding:20px 0 0;margin:0;list-style:none;border-top:1px solid rgba(17,16,13,.14)}
+.featured ul{border-color:var(--line)}
+.plan li{padding:11px 0;display:flex;gap:10px;line-height:1.4}
+.plan li:before{content:"✓";color:var(--green);font-weight:900}
+.featured li:before{color:var(--yellow)}
+
+.roadmap{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+}
+.road{
+  padding:28px;border-top:3px solid #1a1813;
+  border-right:1px solid rgba(17,16,13,.14);
+  min-height:250px;
+}
+.road:last-child{border-right:0}
+.road .week{font-size:.75rem;font-weight:900;letter-spacing:.14em;color:#777064}
+.road h3{font-family:"Oswald",Impact,sans-serif;font-size:2rem;text-transform:uppercase;margin:32px 0 12px}
+.road p{line-height:1.55;color:#5c574d}
+.road:last-child{background:#16140f;color:var(--cream);border-radius:0 18px 18px 0}
+.road:last-child .week,.road:last-child p{color:#aaa292}
+
+.final{
+  min-height:85vh;
+  display:grid;place-items:center;text-align:center;
+  position:relative;overflow:hidden;
+}
+.final:before{
+  content:"TAJA";
+  position:absolute;
+  font-family:"Oswald",Impact,sans-serif;
+  font-size:42vw;line-height:.7;
+  color:rgba(242,181,29,.04);
+  white-space:nowrap;
+}
+.final-content{position:relative;z-index:2}
+.final h2{max-width:1000px;margin:20px auto 30px}
+.final p{max-width:650px;margin:0 auto 34px;color:#bdb6a6;line-height:1.7}
+.final-logo{width:180px;margin-bottom:20px}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:28px 0;color:#777064;font-size:.8rem
+}
+.footer-row{display:flex;justify-content:space-between;gap:20px}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hero-grid,.plans{grid-template-columns:1fr}
+  .hero{padding-top:110px}
+  .hero-art{min-height:400px}
+  .problem-grid{grid-template-columns:1fr}
+  .system{grid-template-columns:1fr}
+  .system-step{min-height:165px;padding:24px 20px}.system-step h3{margin:26px 0 8px;font-size:1.5rem}
+  .system-step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-23px;transform:translateX(-50%)}
+  .pillar{grid-template-columns:65px 1fr;padding:65px 0}
+  .pillar-visual{grid-column:2}
+  .roadmap{grid-template-columns:1fr 1fr}
+  .road:nth-child(2){border-right:0}
+  .road:nth-child(3),.road:nth-child(4){border-top:1px solid rgba(17,16,13,.14)}
+  .road:nth-child(4){border-radius:0 0 18px 0}
+}
+@media(max-width:600px){
+  .container{width:min(100% - 28px,1180px)}
+  .section{padding:80px 0}
+  .display{font-size:clamp(3.2rem,15vw,5rem);line-height:.88}
+  .section-title{font-size:3rem}
+  .hero-art{min-height:320px}
+  .hero-logo{width:330px}.hero-corn{width:135px;left:1%;bottom:0}
+  .orbit{width:300px;height:300px}
+  .badge{font-size:.67rem;padding:8px 10px}
+  .badge.one{right:0}.badge.two{left:0}.badge.three{right:2%}
+  .solution{padding:28px;display:block}
+  .solution h3{font-size:2.6rem}
+  .pillar{grid-template-columns:1fr;gap:22px}
+  .pillar-number{font-size:4rem}
+  .pillar-visual{grid-column:auto;min-height:280px}
+  .roadmap{grid-template-columns:1fr}
+  .road{border-right:0!important;border-top:1px solid rgba(17,16,13,.14)}
+  .road:last-child{border-radius:0 0 18px 18px}
+  .footer-row{display:block}
+  .footer-row span{display:block;margin-top:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#inicio"><img src="Gemini_Generated_Image_ds7b4kds7b4kds7b.png" alt="Taja con Suero"></a>
+    <nav class="nav-links">
+      <a href="#sistema">El sistema</a>
+      <a href="#pilares">Qué hacemos</a>
+      <a href="#planes">Inversión</a>
+      <a href="#inicio" class="btn btn-primary" style="min-height:40px;padding:0 17px">Empezar →</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <div class="eyebrow">Marketing digital y growth gastronómico</div>
+      <h1 class="display">Más pedidos.<br><span>Menos comisiones.</span></h1>
+      <p class="hero-sub">Convertimos publicidad, WhatsApp y un canal propio de domicilios en un sistema que atrae clientes, genera pedidos directos y prepara el terreno para la recompra.</p>
+      <div class="hero-actions">
+        <a href="#planes" class="btn btn-primary">QUIERO MÁS PEDIDOS →</a>
+        <a href="#sistema" class="btn btn-ghost">VER CÓMO FUNCIONA</a>
+      </div>
+    </div>
+    <div class="hero-art reveal">
+      <div class="orbit"></div>
+      <img class="hero-logo" src="Gemini_Generated_Image_1ww8ie1ww8ie1ww8.png" alt="Taja con Suero"><img class="hero-corn" src="Gemini_Generated_Image_tzsx4htzsx4htzsx.png" alt="" aria-hidden="true">
+      <div class="badge one">0% COMISIONES A TERCEROS</div>
+      <div class="badge two">CLIENTES PROPIOS</div>
+      <div class="badge three">PEDIDO DIRECTO ↗</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    CAPTACIÓN DE CLIENTES <span>•</span> CANAL PROPIO <span>•</span> WHATSAPP <span>•</span> AUTOMATIZACIÓN <span>•</span> RECOMPRA <span>•</span>
+    CAPTACIÓN DE CLIENTES <span>•</span> CANAL PROPIO <span>•</span> WHATSAPP <span>•</span> AUTOMATIZACIÓN <span>•</span> RECOMPRA <span>•</span>
+  </div>
+</div>
+
+<section class="section dark-section" id="problema">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">El desafío del sector</div>
+      <h2 class="section-title">Tu margen no debería quedarse en una plataforma.</h2>
+      <p>El objetivo es construir un ecosistema propio que convierta el tráfico publicitario en pedidos directos y recurrentes.</p>
+    </div>
+    <div class="problem-grid">
+      <article class="card reveal"><div class="icon">!</div><h3>Comisiones</h3><p>Dependencia de plataformas de domicilios con altas comisiones que reducen el margen de cada pedido.</p></article>
+      <article class="card reveal"><div class="icon">◷</div><h3>Hora pico</h3><p>Cuando más pedidos entran, responder manualmente puede hacer que oportunidades reales se pierdan.</p></article>
+      <article class="card reveal"><div class="icon">◎</div><h3>Clientes dispersos</h3><p>Sin un canal y una base de datos propia, cada venta depende nuevamente de conseguir atención.</p></article>
+    </div>
+    <div class="solution reveal">
+      <div>
+        <div class="eyebrow" style="color:#111;margin-bottom:12px">La solución</div>
+        <h3>Un ecosistema propio que convierte atención en pedidos.</h3>
+      </div>
+      <div style="font-weight:800;max-width:280px">Más ventas · más margen · medición exacta.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section yellow-section" id="sistema" style="padding-top:105px">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="color:#111">Todo conectado</div>
+      <h2 class="section-title">Así convertimos atención en pedidos.</h2>
+    </div>
+    <div class="system">
+      <article class="system-step reveal"><div class="step-number">01</div><h3>Anuncio</h3><p>Pauta digital hiperlocal para llegar a personas dentro del rango de domicilio.</p></article>
+      <article class="system-step reveal"><div class="step-number">02</div><h3>Landing / WhatsApp</h3><p>Menú, oferta y atención preparados para llevar a la compra.</p></article>
+      <article class="system-step reveal"><div class="step-number">03</div><h3>Pedido</h3><p>Pedido confirmado directo y sin comisiones de terceros.</p></article>
+      <article class="system-step reveal"><div class="step-number">04</div><h3>Datos</h3><p>La información del cliente se convierte en un activo propio.</p></article>
+      <article class="system-step reveal"><div class="step-number">05</div><h3>Recompra</h3><p>Mensajes y automatizaciones para incentivar nuevos pedidos.</p></article>
+    </div>
+    <div class="quote reveal">“Tu equipo se encarga de enamorar en redes sociales y preparar las mejores hamburguesas; nosotros nos encargamos de que el canal de domicilios no pare de sonar.”</div>
+  </div>
+</section>
+
+<section class="section dark-section" id="pilares">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">El sistema por dentro</div>
+      <h2 class="section-title">Cuatro piezas.<br>Un solo objetivo.</h2>
+    </div>
+    <div class="pillars">
+      <article class="pillar reveal">
+        <div class="pillar-number">01</div>
+        <div><h3>Oferta que provoca el pedido.</h3><p>Investigación de competencia local, público objetivo en la zona de entrega y estructuración de ofertas gancho o combos de alto valor.</p></div>
+        <div class="pillar-visual"><img src="Gemini_Generated_Image_tzsx4htzsx4htzsx.png" alt="" style="width:260px;max-width:75%;filter:drop-shadow(0 22px 30px rgba(0,0,0,.45));transform:rotate(-6deg)"><div class="visual-label" style="position:absolute;bottom:20px">COMBOS · TICKET · POSICIONAMIENTO</div></div>
+      </article>
+      <article class="pillar reveal">
+        <div class="pillar-number">02</div>
+        <div><h3>Publicidad que llega a tu zona.</h3><p>Anuncios hiper-geolocalizados, enfocados en antojo visual, promociones e impulso de compra inmediata.</p></div>
+        <div class="pillar-visual"><div class="map"><div class="zone"></div><i class="pin"></i><i class="pin"></i><i class="pin"></i><i class="pin"></i></div></div>
+      </article>
+      <article class="pillar reveal">
+        <div class="pillar-number">03</div>
+        <div><h3>Tu propio canal de domicilios.</h3><p>Landing o menú digital ultra rápido, optimizado para smartphones y diseñado alrededor de un flujo de pedido directo.</p></div>
+        <div class="pillar-visual"><div class="fake-phone"><div class="top"></div><img src="Gemini_Generated_Image_ds7b4kds7b4kds7b.png" alt="Taja con Suero" style="width:100%;height:auto;margin:28px 0 22px"><div style="font-size:10px">MENÚ · PEDIDOS DIRECTOS</div><div class="fake-btn"></div></div></div>
+      </article>
+      <article class="pillar reveal">
+        <div class="pillar-number">04</div>
+        <div><h3>WhatsApp que trabaja mientras tú cocinas.</h3><p>Chatbot y respuestas automáticas para atender pedidos, capturar datos y activar secuencias de recompra.</p></div>
+        <div class="pillar-visual"><div class="visual-label">24/7 · ATENCIÓN · RECOMPRA</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section cream-section" id="planes">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="color:#2f8a54">Planes e inversión</div>
+      <h2 class="section-title">Elige cómo arrancamos.</h2>
+      <p>Valores por servicios profesionales. La pauta y el dominio/hosting van por cuenta de Taja con Suero.</p>
+    </div>
+    <div class="plans">
+      <article class="plan reveal">
+        <div class="tag">Opción 1</div>
+        <h3>Plan Growth Base</h3>
+        <div class="price">$900.000 <small>COP / mes</small></div>
+        <div class="plan-sub">Tarifa fija mensual</div>
+        <ul>
+          <li>Investigación de mercado y posicionamiento de marca y oferta.</li>
+          <li>Estrategia y gestión de pauta digital.</li>
+          <li>Creación de Landing Page para domicilios.</li>
+          <li>Automatización e integración de WhatsApp.</li>
+        </ul>
+        <a href="#inicio" class="btn btn-ghost" style="margin-top:28px;border-color:#cfc5aa;color:#111">ELEGIR PLAN →</a>
+      </article>
+      <article class="plan featured reveal">
+        <div class="tag">Opción 2 · incluye diseño</div>
+        <h3>Plan Growth + Diseños</h3>
+        <div class="price">$1.200.000 <small>COP · primer mes</small></div>
+        <div class="plan-sub">Desde el mes 2: $900.000 COP / mes</div>
+        <ul>
+          <li>Todo lo incluido en el Plan Growth Base.</li>
+          <li>Diseño gráfico aplicado.</li>
+          <li>Piezas e imagen publicitaria para anuncios.</li>
+          <li>Diseño de la interfaz durante la fase inicial.</li>
+        </ul>
+        <a href="#inicio" class="btn btn-primary" style="margin-top:28px">ELEGIR PLAN →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section cream-section" style="padding-top:20px">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:35px">
+      <div class="eyebrow" style="color:#2f8a54">De cero a pedidos</div>
+      <h2 class="section-title">Hoja de ruta.</h2>
+    </div>
+    <div class="roadmap">
+      <article class="road reveal"><div class="week">SEMANA 01</div><h3>Base</h3><p>Investigación, estructuración de ofertas y montaje de Landing Page.</p></article>
+      <article class="road reveal"><div class="week">SEMANA 02</div><h3>Automatización</h3><p>Configuración de automatizaciones en WhatsApp y píxeles de seguimiento.</p></article>
+      <article class="road reveal"><div class="week">SEMANA 03</div><h3>Lanzamiento</h3><p>Lanzamiento de campañas de pauta digital y pruebas de flujo.</p></article>
+      <article class="road reveal"><div class="week">SEMANA 04+</div><h3>Optimización</h3><p>Optimización continua, análisis de conversiones y escalamiento.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section dark-section final" id="iniciar">
+  <div class="final-content container reveal">
+    <img class="final-logo" src="Gemini_Generated_Image_ds7b4kds7b4kds7b.png" alt="Taja con Suero">
+    <div class="eyebrow">Arrancamos cuando quieras</div>
+    <h2 class="section-title">¿Listos para hacer sonar el canal de domicilios?</h2>
+    <p>Elegimos el plan, conectamos los activos y definimos la primera oferta gancho para poner el sistema en marcha.</p>
+    <a href="#planes" class="btn btn-primary">QUIERO EMPEZAR →</a>
+    <div style="margin-top:50px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;color:#8e8778;font-size:.85rem">
+      <span><b style="color:var(--yellow)">01</b> Elegimos el plan</span>
+      <span><b style="color:var(--yellow)">02</b> Entregas menú, imágenes y precios</span>
+      <span><b style="color:var(--yellow)">03</b> Definimos la primera oferta</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <span>TAJA CON SUERO · SISTEMA DE ADQUISICIÓN DIGITAL Y DOMICILIOS DIRECTOS</span>
+    <span>Propuesta estratégica · 2026</span>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
